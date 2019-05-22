@@ -14,7 +14,7 @@
 
     </div>
     <a href="addproduct" class="btn btn-primary" style="width: 200px"><span style="font-size: x-large"> + Add product</span></a><br><br>
-    @if(count($product) > 0)
+    @if(count($products) > 0)
     <div align="center">
         <a href="{{Route('export.pro')}}" class="btn btn-success">Export To Excel</a>
     </div>
@@ -22,6 +22,7 @@
         <table class="table table-bordered table-hover   box box-primary">
             <thead>
             <tr>
+                <th>#</th>
                 <th>product Name</th>
                 <th>product Description</th>
                 <th>product Picture</th>
@@ -32,9 +33,10 @@
             </tr>
             </thead>
 
-                @foreach($product as $product)
+                @foreach($products as $product)
                     <tbody>
                     <tr>
+                        <td>{{$product->id}}</td>
                         <td>{{$product->pro_name}}</td>
                         <td>{{$product->description}}</td>
                         <td><img class="img-thumbnail" style="width: 100px;height: 100px" src="{{url('storage/'.$product->image)}}" alt=""></td>
@@ -62,6 +64,10 @@
                     @endforeach
 
         </table>
+        <div class="text-center">
+            {{$products->links()}}
+        </div>
+
     </div>
     @else
         <div style="font-size: xx-large;position: absolute;top: 50%;left: 10%;z-index: 99999;right: 0;text-align: center;"> don't have any data </div>

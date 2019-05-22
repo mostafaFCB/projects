@@ -14,7 +14,7 @@
 
         </div>
         <a href="addemployee" class="btn btn-primary" style="width: 200px"><span style="font-size: x-large"> + Add Employee</span></a><br><br>
-        @if(count($employee) > 0)
+        @if(count($employees) > 0)
             <div align="center">
                 <a href="{{Route('export.emp')}}" class="btn btn-success">Export To Excel</a>
             </div>
@@ -28,7 +28,7 @@
                     </tr>
                     </thead>
 
-                    @foreach($employee as $employee)
+                    @foreach($employees as $employee)
                         <tbody>
                         <tr>
                             <td>{{$employee->name}}</td>
@@ -54,7 +54,9 @@
 
 
                 </table>
-
+                <div class="text-center">
+                    {{$employees->links()}}
+                </div>
             </div>
         @else
             <div style="font-size: xx-large;position: absolute;top: 50%;left: 10%;z-index: 99999;right: 0;text-align: center;"> don't have any data </div>

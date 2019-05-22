@@ -29,8 +29,10 @@ class PagesController extends Controller
     public function products(){
        // $product = DB::select('select * from products.products where products.deleted = 2 ');
 
-        $product =   product::all()->where('deleted','2');
-        return view('/products', compact('product'));
+     //   $product =   product::all()->where('deleted','2');
+        $products =   product::orderBy('id','desc')->where('deleted','2')->paginate(5);
+
+        return view('/products',compact('products'));
     }
 
     public function addproduct(){
@@ -182,8 +184,8 @@ class PagesController extends Controller
     public function supplayers(){
         // $product = DB::select('select * from products.products where products.deleted = 2 ');
 
-        $supplayer =   supplayer::all()->where('deleted','2');
-        return view('/supplayers', compact('supplayer'));
+        $supplayers =   supplayer::orderBy('id','desc')->where('deleted','2')->paginate(5);
+        return view('/supplayers', compact('supplayers'));
     }
 
     public function addsupplayer(){
@@ -306,7 +308,9 @@ class PagesController extends Controller
 /*-------------------------------------------- Clients --------------------------------------*/
 
     public function clients(){
-        $client = DB::select('select * from products join clients on products.id = clients.product_id where clients.deleted = 2 ');
+       // $client = DB::select('select * from products join clients on products.id = clients.product_id where clients.deleted = 2 ');
+
+        $clients = DB::table('products')->join('clients','products.id','=','product_id')->orderBy('clients.id','desc')->where('products.deleted','2')->paginate(5);
 
       //  $client =   client::all()->where('deleted','2');
     //    dd($client);
@@ -315,7 +319,7 @@ class PagesController extends Controller
      //   }else{
       //      echo "empty" ;
       //  }
-      return view('/clients', compact('client'));
+      return view('/clients', compact('clients'));
     }
 
     public function addclient(){
@@ -392,14 +396,14 @@ class PagesController extends Controller
     public function employees(){
         // $product = DB::select('select * from products.products where products.deleted = 2 ');
 
-        $employee =   employe::all()->where('deleted','2');
+        $employees =   employe::orderBy('id','desc')->where('deleted','2')->paginate(5);
         //    dd($client);
         // if(!$client){
         //      echo "not" ;
         //   }else{
         //      echo "empty" ;
         //  }
-        return view('/employees', compact('employee'));
+        return view('/employees', compact('employees'));
     }
 
     public function addemployee(){
@@ -476,7 +480,7 @@ class PagesController extends Controller
         }else{
             echo "no have data";
         }*/
-        return view ('/getdata',compact('search','data','clients'   ));
+        return view ('/getdata',compact('search','data','clients'));
     }
 
 

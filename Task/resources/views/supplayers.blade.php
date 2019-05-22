@@ -14,7 +14,7 @@
 
         </div>
         <a href="addsupplayer" class="btn btn-primary" style="width: 200px"><span style="font-size: x-large"> + Add Supplayer</span></a><br><br>
-        @if(count($supplayer) > 0 )
+        @if(count($supplayers) > 0 )
             <div align="center">
                 <a href="{{Route('export.sup')}}" class="btn btn-success">Export To Excel</a>
             </div>
@@ -22,6 +22,7 @@
                 <table class="table table-bordered table-hover   box box-primary">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>supplayer Name</th>
                         <th>supplayer Address</th>
                         <th>Product Count</th>
@@ -29,9 +30,10 @@
                     </tr>
                     </thead>
 
-                    @foreach($supplayer as $supplayer)
+                    @foreach($supplayers as $supplayer)
                         <tbody>
                         <tr>
+                            <td>{{$supplayer->id}}</td>
                             <td>{{$supplayer->sup_name}}</td>
                             <td>{{$supplayer->address}}</td>
                             <td>{{$supplayer->pro_count}}</td>
@@ -55,6 +57,9 @@
                         @endforeach
 
                 </table>
+                <div class="text-center">
+                    {{ $supplayers->links()}}
+                </div>
             </div>
             @else
                 <div > <p style="font-size: xx-large;text-align: center;margin-top: 2000px">don't have any data </p></div>

@@ -14,7 +14,7 @@
 
         </div>
         <a href="addclient" class="btn btn-primary" style="width: 200px"><span style="font-size: x-large"> + Add Client</span></a><br><br>
-        @if(count($client) > 0)
+        @if(count($clients) > 0)
             <div align="center">
                 <a href="{{Route('export.client')}}" class="btn btn-success">Export To Excel</a>
             </div>
@@ -22,6 +22,7 @@
                 <table class="table table-bordered table-hover   box box-primary">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Client Name</th>
                         <th>Client Address</th>
                         <th>Product Name</th>
@@ -32,9 +33,10 @@
                     </tr>
                     </thead>
 
-                    @foreach($client as $client)
+                    @foreach($clients as $client)
                         <tbody>
                         <tr>
+                            <td>{{$client->id}}</td>
                             <td>{{$client->client_name}}</td>
                             <td>{{$client->address}}</td>
                             <td>{{$client->pro_name}}</td>
@@ -48,6 +50,9 @@
                     @endforeach
 
                 </table>
+                <div class="text-center">
+                    {{$clients->links()}}
+                </div>
             </div>
         @else
             <div style="font-size: xx-large;position: absolute;top: 50%;left: 10%;z-index: 99999;right: 0;text-align: center;"> don't have any data </div>

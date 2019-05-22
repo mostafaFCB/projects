@@ -22,11 +22,12 @@
                     <td>{{$search->description}}</td>
                     <td>{{$search->price}}</td>
                     <td>{{$search->count}}</td>
-                    <td>{{$search->created_at}}</td>
+                    <td>{{date('d M,Y',strtotime($search->created_at))}}</td>
                    </tr>
                 <tbody>
             @endforeach
         </table>
+
     </div>
   @elseif(count($data) > 0)
     <h1>products and supplayers  Data</h1>
@@ -55,11 +56,12 @@
                     <td>{{$data->address}}</td>
                     <td>{{$data->product_count}}</td>
                     <td>{{$data->price * $data->product_count}}</td>
-                    <td>{{$data->created_at}}</td>
+                    <td>{{date('d M,Y',strtotime($data->created_at))}}</td>
                 </tr>
                 <tbody>
             @endforeach
         </table>
+
     </div>
 @elseif(count($clients) > 0)
     <h1>Clients  Data</h1>
@@ -86,7 +88,7 @@
                     <td>{{$client->client_count}}</td>
                     <td>{{$client->price_unit}}</td>
                     <td>{{$client->client_count * $client->price_unit }}</td>
-                    <td>{{$client->created_at}}</td>
+                    <td>{{date('d M,Y',strtotime($client->created_at))}}</td>
                 </tr>
                 <tbody>
             @endforeach
