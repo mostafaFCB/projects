@@ -22,7 +22,7 @@
                     <td>{{$search->description}}</td>
                     <td>{{$search->price}}</td>
                     <td>{{$search->count}}</td>
-                    <td>{{date('d M,Y',strtotime($search->created_at))}}</td>
+                    <td>{{date('d M,Y',strtotime($search->created_at))}} at {{date('g:ia',strtotime($search->created_at))}} </td>
                    </tr>
                 <tbody>
             @endforeach
@@ -56,7 +56,7 @@
                     <td>{{$data->address}}</td>
                     <td>{{$data->product_count}}</td>
                     <td>{{$data->price * $data->product_count}}</td>
-                    <td>{{date('d M,Y',strtotime($data->created_at))}}</td>
+                    <td>{{date('d M,Y',strtotime($data->created_at))}}  at {{date('g:ia',strtotime($data->created_at))}} </td>
                 </tr>
                 <tbody>
             @endforeach
@@ -88,7 +88,7 @@
                     <td>{{$client->client_count}}</td>
                     <td>{{$client->price_unit}}</td>
                     <td>{{$client->client_count * $client->price_unit }}</td>
-                    <td>{{date('d M,Y',strtotime($client->created_at))}}</td>
+                    <td>{{date('d M,Y',strtotime($client->created_at))}}  at {{date('g:ia',strtotime($client->created_at))}} </td>
                 </tr>
                 <tbody>
             @endforeach
