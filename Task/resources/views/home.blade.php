@@ -13,7 +13,7 @@
                             <i class="fa fa-product-hunt icon"></i>
                             <div class="style">
                                 Add Product
-                                <span class="">30</span>
+                                <span class="">{{count($products)}}</span>
                             </div>
                         </div>
                     </a>
@@ -24,7 +24,7 @@
                             <i class="fa fa-user-plus icon"></i>
                             <div class="style">
                                 Add Supplayer
-                                <span class="">40</span>
+                                <span class="">{{count($supplayers)}}</span>
                             </div>
                         </div>
                     </a>
@@ -35,7 +35,7 @@
                             <i class="fa fa-user-secret icon"></i>
                             <div class="style">
                                 Add Client
-                                <span class="">50</span>
+                                <span class="">{{count($clients)}}</span>
                             </div>
                         </div>
                     </a>
@@ -47,7 +47,7 @@
                             <i class="fa fa-male icon"></i>
                             <div class="style">
                                 Add Empolyee
-                                <span class="">40</span>
+                                <span class="">{{count($emps)}}</span>
                             </div>
                         </div>
                     </a>
